@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Mother's Day!</title>
+    <style>
+        :root {
+            --soft-pink: #fce4ec;
+            --deep-rose: #d81b60;
+            --gold: #d4af37;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fff5f7 0%, #fce4ec 100%);
+            color: #444;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--deep-rose);
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .photo-container {
+            position: relative;
+            margin: 20px auto;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 8px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            overflow: hidden;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .message-card {
+            background: white;
+            padding: 40px;
+            margin: 30px 20px;
+            max-width: 600px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            line-height: 1.8;
+            border-bottom: 5px solid var(--deep-rose);
+        }
+
+        .message-card p {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #555;
+        }
+
+        .signature {
+            margin-top: 20px;
+            font-weight: bold;
+            color: var(--deep-rose);
+            font-size: 1.3rem;
+        }
+
+        .btn {
+            background-color: var(--deep-rose);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            margin-bottom: 50px;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background-color: #ad1457;
+        }
+
+        /* Floating Hearts */
+        .heart {
+            position: fixed;
+            font-size: 20px;
+            color: var(--deep-rose);
+            opacity: 0.7;
+            user-select: none;
+            pointer-events: none;
+            animation: moveUp 5s linear infinite;
+        }
+
+        @keyframes moveUp {
+            from { transform: translateY(100vh) translateX(0); opacity: 1; }
+            to { transform: translateY(-10vh) translateX(100px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Happy Mother's Day</h1>
+        <p>Celebrating the heart of our home.</p>
+    </header>
+
+    <div class="photo-container">
+        <img src="me and mamoni.jpg" alt="A beautiful memory">
+    </div>
+
+    <div class="message-card">
+        <p>
+            "To the woman who has been my first teacher, my constant protector, 
+            and my greatest inspiration. Your love is the quiet strength that 
+            carries me through every challenge, and your smile is the light 
+            that makes every day brighter. Thank you for everything you do 
+            unconditionally."
+        </p>
+        <div class="signature">With all my love, always.</div>
+    </div>
+
+    <button class="btn" onclick="spreadLove()">Click for a Surprise!</button>
+
+    <script>
+        function spreadLove() {
+            for(let i=0; i<30; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.innerHTML = '❤️';
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => heart.remove(), 5000);
+                }, i * 100);
+            }
+            alert("You are the best Mom in the world! ❤️");
+        }
+    </script>
+
+</body>
+</html>
